@@ -1,0 +1,22 @@
+.container {
+  align-items: center;
+  text-align: center;
+}
+span {
+  color: red;
+}
+div {
+  padding: 5px;
+}
+
+form {
+  border: 1px solid green;
+  margin-left: 40%;
+  margin-right: 40%;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+}
+button {
+  cursor: pointer;
+}

@@ -1,0 +1,58 @@
+<div class="container">
+  <h1>Registration Form !</h1>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <div>
+      <label name="firstname">FirstName* </label>
+      <input type="text" [(ngModel)]="user.firstname" #firstname="ngModel" name="firstname" required minlength="3"
+        maxlength="15">
+    </div>
+    <!-- Message d'erreur de l'input firstname -->
+    <div *ngIf="submitted && firstname.errors">
+      <span *ngIf="firstname.errors?.['required']">Le prénom est requis !</span>
+      <span *ngIf="firstname.errors?.['maxlength']">Le prénom doit être inférieur à 15 !</span>
+      <span *ngIf="firstname.errors?.['minlength']">Le prénom doit être supérieur à 3 !</span>
+    </div>
+
+
+
+    <div>
+      <label name="lastname">LastName* </label>
+      <input type="text" [(ngModel)]="user.lastname" #lastname="ngModel" name="lastname" required minlength="3"
+        maxlength="15">
+    </div>
+    <!-- Message d'erreur de l'input lastname -->
+    <div *ngIf="submitted && lastname.errors">
+      <span *ngIf="lastname.errors?.['required']">Le nom est requis !</span>
+      <span *ngIf="lastname.errors?.['minlength']">Le nom doit être supérieur à 3 !</span>
+      <span *ngIf="lastname.errors?.['maxlength']">Le nom doit être inférieur à 15 !</span>
+    </div>
+
+
+    <div>
+      <label name="email">Email* </label>
+      <input type="email" [(ngModel)]="user.email" #email="ngModel" name="email" required email>
+    </div>
+    <!-- Message d'erreur de l'input email -->
+    <div *ngIf="submitted && email.errors">
+      <span *ngIf="email.errors?.['required']">L'email est requis !</span>
+      <span *ngIf="email.errors?.['email']">L'email est invalid !</span>
+    </div>
+
+    <div>
+      <label name="password">Password* </label>
+      <input type="password" [(ngModel)]="user.password" #password="ngModel" name="password" required>
+    </div>
+    <!-- Message d'erreur de l'input password -->
+    <div *ngIf="submitted && password.errors">
+      <span *ngIf="password.errors?.['required']">Le password est requis !</span>
+    </div>
+
+
+    <div>
+      <button type="reset">Cancel</button>
+      <button type="submit">Send</button>
+    </div>
+  </form>
+
+</div>
